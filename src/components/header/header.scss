@@ -1,0 +1,42 @@
+
+
+.header__row {
+    display: flex;
+    background-color: #364190;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+}
+
+.header__logo {
+    padding-left: 12px;
+    
+}
+
+
+.header__body{
+    display: flex;
+    padding-right: 25px;
+}
+.header__body a{
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 0px 15px ;
+}
+
+.header__body a.selected {
+    text-decoration: underline white;
+}
+
+
+.header__body a:hover{
+    text-decoration: underline white;
+}
+
+.header img { 
+    padding: 10px 0px 10px 20px;
+    width: 80px;
+    height: 50px;
+    fill: white;
+}

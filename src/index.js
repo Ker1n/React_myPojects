@@ -2,16 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+ import * as serviceWorker from './serviceWorker';
+import store from "./components/redux/state";
+// import {addPost, updateNewPostText, addTextInChat, subscribe} from './components/redux/state';
+// addPost("privet")
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let renderEntireTree = () => { 
+    ReactDOM.render(
+      <React.StrictMode>
+        <App state={store.getState}  dispatch = {store.dispatch.bind(store)}  />
+      </React.StrictMode>,
+      document.getElementById('root')
+    );  
+}
+  
+renderEntireTree();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+store.subscribe(renderEntireTree);
+
+
 serviceWorker.unregister();
+
+// addPost = {store.addPost.bind(store)} addTextInChat = {store.addTextInChat.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)} /
